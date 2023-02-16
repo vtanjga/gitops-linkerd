@@ -30,7 +30,7 @@ spec:
       runAsUser: 1000
     adminUser:
       create: true
-      username: admin
+      username: wego-admin
       # Change password by generating a new hash on https://bcrypt.online
       # bcrypt hash for password "flux"
       passwordHash: "$2a$10$P/tHQ1DNFXdvX0zRGA8LPeSOyb0JXq9rP3fZ4W8HGTpLV7qHDlWhe"
