@@ -36,8 +36,9 @@ kind: Issuer
 metadata:
   name: selfsigned-issuer
   namespace: linkerd
-ca:
-  secretName: root-secret
+spec:
+  ca:
+    secretName: root-secret
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
