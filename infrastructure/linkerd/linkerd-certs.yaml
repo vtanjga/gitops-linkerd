@@ -17,12 +17,12 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: my-selfsigned-ca
+  name: linkerd-trust-anchor
   namespace: linkerd
 spec:
   isCA: true
-  commonName: my-selfsigned-ca
-  secretName: root-secret
+  commonName: identity.linkerd.cluster.local
+  secretName: linkerd-trust-anchor
   privateKey:
     algorithm: ECDSA
     size: 256
@@ -34,11 +34,11 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: selfsigned-issuer
+  name: linkerd-trust-anchor
   namespace: linkerd
 spec:
   ca:
-    secretName: root-secret
+    secretName: linkerd-trust-anchor
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -50,7 +50,7 @@ spec:
   duration: 48h
   renewBefore: 25h
   issuerRef:
-    name: selfsigned-issuer
+    name: linkerd-trust-anchor
     kind: Issuer
   commonName: identity.linkerd.cluster.local
   dnsNames:
