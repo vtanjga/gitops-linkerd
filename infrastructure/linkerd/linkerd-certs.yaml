@@ -1,11 +1,19 @@
+# apiVersion: cert-manager.io/v1
+# kind: Issuer
+# metadata:
+#   name: linkerd-trust-anchor
+#   namespace: linkerd
+# spec:
+#   ca:
+#     secretName: linkerd-trust-anchor
+---
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: linkerd-trust-anchor
+  name: selfsigned-issuer
   namespace: linkerd
 spec:
-  ca:
-    secretName: linkerd-trust-anchor
+  selfSigned: {}
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -17,7 +25,7 @@ spec:
   duration: 48h
   renewBefore: 25h
   issuerRef:
-    name: linkerd-trust-anchor
+    name: selfsigned-issuer
     kind: Issuer
   commonName: identity.linkerd.cluster.local
   dnsNames:
