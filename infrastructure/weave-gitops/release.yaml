@@ -33,7 +33,8 @@ spec:
       username: wego-admin
       # Change password by generating a new hash on https://bcrypt.online
       # bcrypt hash for password "flux"
-      passwordHash: "$2a$10$P/tHQ1DNFXdvX0zRGA8LPeSOyb0JXq9rP3fZ4W8HGTpLV7qHDlWhe"
+      # passwordHash: "$2a$10$P/tHQ1DNFXdvX0zRGA8LPeSOyb0JXq9rP3fZ4W8HGTpLV7qHDlWhe"
+      passwordHash: "$2y$10$0LclGyYhGG7kFray7bgBQuzAroX9dcVxtYhyxlteGzj50xwdIlg8C"
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
